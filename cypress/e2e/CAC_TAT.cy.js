@@ -12,9 +12,9 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
         const longText = Cypress._.repeat('abcdefghijklmnopqrstuvwxyz', 10)
 
-        cy.get('#firstName').type('João Vitor')
-        cy.get('#lastName').type('Domene Maganini')
-        cy.get('#email').type('jvitordomenem@gmail.com')
+        cy.get('#firstName').type('Walmyr')
+        cy.get('#lastName').type('Lima e Silva Filho')
+        cy.get('#email').type('walmyr@talkingabouttesting.com')
         cy.get('#open-text-area').type(longText, { delay: 0 })
         cy.contains('button', 'Enviar').click()
 
@@ -28,9 +28,9 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', () => {
         cy.clock()
 
-        cy.get('#firstName').type('João Vitor')
-        cy.get('#lastName').type('Domene Maganini')
-        cy.get('#email').type('jvitordomenem@gmail.com')
+        cy.get('#firstName').type('Walmyr')
+        cy.get('#lastName').type('Lima e Silva Filho')
+        cy.get('#email').type('walmyr@talkingabouttesting,com')
         cy.get('#open-text-area').type('Teste')
         cy.contains('button', 'Enviar').click()
 
@@ -50,9 +50,9 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
         cy.clock()
 
-        cy.get('#firstName').type('João Vitor')
-        cy.get('#lastName').type('Domene Maganini')
-        cy.get('#email').type('jvitordomenem@gmail.com')
+        cy.get('#firstName').type('Walmyr')
+        cy.get('#lastName').type('Lima e Silva Filho')
+        cy.get('#email').type('walmyr@talkingabouttesting.com')
         cy.get('#open-text-area').type('Test')
         cy.get('#phone-checkbox').check()
         cy.contains('button', 'Enviar').click()
@@ -66,18 +66,18 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
     it('preenche e limpa os campos nome, sobrenome, email e telefone', () => {
         cy.get('#firstName')
-            .type('João Vitor')
-            .should('have.value', 'João Vitor')
+            .type('Walmyr')
+            .should('have.value', 'Walmyr')
             .clear()
             .should('have.value', '')
         cy.get('#lastName')
-            .type('Domene Maganini')
-            .should('have.value', 'Domene Maganini')
+            .type('Lima e Silva Filho')
+            .should('have.value', 'Lima e Silva Filho')
             .clear()
             .should('have.value', '')
         cy.get('#email')
-            .type('jvitordomenem@gmail.com')
-            .should('have.value', 'jvitordomenem@gmail.com')
+            .type('walmyr@talkingabouttesting.com')
+            .should('have.value', 'walmyr@talkingabouttesting.com')
             .clear()
             .should('have.value', '')
         cy.get('#phone')
